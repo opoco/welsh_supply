@@ -116,11 +116,6 @@ app.get('/circulating-supply', async (req, res) => {
   }
 });
 
-/**
- * Start the Express server and listen on the specified port.
- * 
- * The server will log a message to indicate that it is running and which port it is listening on.
- */
 app.listen(port, () => {
   console.log(`API is running on port ${port}`);
 });
