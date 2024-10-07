@@ -42,8 +42,7 @@ async function getTotalSupply() {
  * Function to fetch the circulating supply of the Welshcorgicoin token.
  * 
  * This function makes an HTTP GET request to retrieve the balance data for the mint address.
- * The circulating supply is calculated based on the total number of tokens that have been unlocked
- * out from the mint address. In other words, it is the total supply minus any locked tokens
+ * The circulating supply is calculated based on the total supply minus any locked tokens
  * in the minting address.
  * 
  * @returns {number} circulatingSupply - The circulating supply of Welshcorgicoin.
@@ -54,6 +53,8 @@ async function getCirculatingSupply() {
     const totalSupplyRes = await axios.get(`https://api.hiro.so/metadata/v1/ft/${contractAddress}`);
     // Extract the decimals from the API response
     const decimals = totalSupplyRes.data.decimals;
+    // Extract the total supply from the API response
+    const totalSupply = totalSupplyRes.data.total_supply;
 
     // Make GET request to the Hiro API to get the balance data for the mint address
     const balancesRes = await axios.get(`https://api.hiro.so/extended/v1/address/${mintAddress}/balances?until_block=60000`);
@@ -65,8 +66,8 @@ async function getCirculatingSupply() {
       throw new Error('Welshcorgicoin token not found.');
     }
 
-    // Circulating supply is the total number of tokens unlocked from the mint address (total_sent)
-    const circulatingSupply = welshToken.total_sent;
+    // Circulating supply is the total supply minus total tokens current locked in the mint address (balance)
+    const circulatingSupply = totalSupply - welshToken.balance;
     
     // Convert the total supply and return it
     return parseInt(circulatingSupply) / Math.pow(10, decimals);
