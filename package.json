@@ -2,8 +2,6 @@
   "name": "welsh_supply",
   "version": "1.0.0",
   "main": "api.js",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "axios": "^1.7.7",
     "express": "^4.21.0"
