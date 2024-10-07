@@ -23,5 +23,5 @@ Endpoint: /circulating-supply
 Method: GET  
 Response: 10000000000  
 
-## Additional Information
-For more details on how the information is gathered and processed, please refer to the index.js file. The file contains thorough documentation and comments explaining each step of the logic used to interact with the Hiro API and retrieve the necessary data.
+## Additional Information [api.js]
+For more details on how the information is gathered and processed, please refer to the api.js file. The file contains thorough documentation and comments explaining each step of the logic used to interact with the Hiro API and retrieve the necessary data.
