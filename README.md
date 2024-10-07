@@ -8,8 +8,8 @@ This project provides an API to retrieve information about the Welshcorgicoin to
 
 ## Features
 
-- **Total Supply**: Retrieve the total number of WelshCorgiCoin tokens created.
-- **Circulating Supply**: Retrieve the total number of Welshcorgicoin tokens currently in circulation (tokens that have left the mint address).
+- **Total Supply**: Retrieve the total number of Welshcorgicoin tokens created.
+- **Circulating Supply**: Retrieve the total number of Welshcorgicoin tokens currently in circulation (total supply minus total tokens current locked in the mint address).
 
 ## Endpoints
 
